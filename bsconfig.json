@@ -4,10 +4,6 @@
   "sources": [
     "src"
   ],
-  "namespace": true,
-  "bs-dependencies" : [
-      // add your bs-dependencies here
-  ],
   "bsc-flags": ["-bs-super-errors"],
   "package-specs": ["es6"]
 }
