@@ -33,7 +33,7 @@ Add the BuckleScript dependency to your `bsconfig.json`:
 
     {
       ...,
-      "bs-dependencies": [..., "phoenix"]
+      "bs-dependencies": [..., "bs-phoenix"]
     }
 
 And see the `src/test.ml` file for examples of what the code should look
