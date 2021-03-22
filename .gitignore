@@ -1,4 +1,5 @@
-lib
+lib/bs
 .vscode
 .merlin
 node_modules
+src/*.bs.js

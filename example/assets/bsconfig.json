@@ -1,10 +1,8 @@
 {
-    "name": "bs-phoenix",
-    "namespace": "Phoenix",
+    "name": "example",
+    "namespace": true,
     "version": "0.1.0",
-    "sources": [
-        { "dir": "src" }
-    ],
+    "sources": { "dir": "src" },
     "bsc-flags": [ "-bs-super-errors" ],
     "package-specs": [
         {
@@ -13,7 +11,7 @@
         }
     ],
     "suffix": ".bs.js",
-    "bs-dependencies": [],
+    "bs-dependencies": [ "bs-webapi", "bs-phoenix","bs-fetch" ],
     "warnings": {
         "error": "+101"
     }
