@@ -12,7 +12,7 @@ with the `Module.function` idiom that's normal in OCaml.
 For example, a JavaScript snippet from the Phoenix.js module:
 
 ```javascript
-let socket = new Socket("/socket", {params: {userToken: "123"}})
+let socket = new Socket("/socket", {params: {userToken: "lobby"}})
 ```
 
 translates to the corresponding OCaml in bs-phoenix:
@@ -20,7 +20,16 @@ translates to the corresponding OCaml in bs-phoenix:
 ```ocaml
 open Phoenix
 
-let socket = Socket.make "/socket" [%obj { params = { userToken = "123" } }]
+let socket = Socket.make "/socket" [%obj { params = { userToken = "lobby" } }]
+```
+```reason
+let%private params = {
+  "userToken": "",
+  "logger": (kind, msg, data) =>
+    Js.log2(kind ++ ": " ++ msg ++ ", ", data),
+};
+open Phoenix;
+let socket = Socket.make("/socket",params);
 ```
 
 ## Use
@@ -33,8 +42,17 @@ Add the BuckleScript dependency to your `bsconfig.json`:
 
     {
       ...,
-      "bs-dependencies": [..., "phoenix"]
+      "bs-dependencies": [..., "bs-phoenix"]
     }
 
-And see the `src/test.ml` file for examples of what the code should look
+And see the `example/App.re` and `src/Test.re` files for examples of what the code should look
 like.
+
+## Running Example
+
+  * Change into `example` directory with `cd example`
+  * Install dependencies with `mix deps.get`
+  * Create and migrate your database with `mix ecto.setup`
+  * Install Node.js dependencies with `npm install` inside the `assets` directory
+  * Compile Reason code `npm run watch`
+  * Start Phoenix endpoint with `mix phx.server`
